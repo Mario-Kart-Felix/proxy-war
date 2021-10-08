@@ -1,0 +1,9 @@
+local user 	= G_Me.crossWarData:getUserInChampionList(index)
+
+	-- 设置底座排名
+	self:showTextWithLabel("Label_Rank", G_lang:get("LANG_ARENA_RANKING", {rank = user.rank}))
+	self:updateTitle(user.rank)
+end
+
+function CrossWarChampionItem:updateContent(user)
+	self._isSelf= user.sid == G_PlatformProxy:getLoginServer().id and user.user_id == G_Me.userData.id
